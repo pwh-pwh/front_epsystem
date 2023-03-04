@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vue-cli-service serve --mode development",
     "build": "vue-cli-service build --mode production",
-    "prod": "vue-cli-service server --mode production"
+    "prod": "vue-cli-service serve --mode production"
   },
   "dependencies": {
     "axios": "^0.24.0",
