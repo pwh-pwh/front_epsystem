@@ -2,7 +2,7 @@ import axios from "axios";
 import Element from 'element-ui';
 import router from "./router";
 
-axios.defaults.baseURL = "http://localhost:8081"
+axios.defaults.baseURL = process.env.VUE_APP_URL
 axios.defaults.withCredentials = false
 
 const request = axios.create({
