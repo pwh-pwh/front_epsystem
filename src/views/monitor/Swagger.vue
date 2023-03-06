@@ -9,7 +9,7 @@
         components: {IFrame},
         data() {
             return{
-                url: "http://localhost:8081/swagger-ui/index.html"
+                url: process.env.VUE_APP_URL+"swagger-ui/index.html"
             }
         }
     }
