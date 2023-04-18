@@ -3,7 +3,7 @@
         <el-menu
                 class="el-menu-vertical-demo"
                 :collapse="isCollapse"
-                background-color="#304156"
+                background-color="#3F3014"
                 text-color="#bfcbd9"
                 :unique-opened="true"
                 active-text-color="#69D921"
@@ -101,17 +101,17 @@
     }
 
     .nest-menu:hover {
-        background-color: #001528 !important;
+        background-color: #0e3e69 !important;
     }
 
     .submenu:hover {
-        background-color: rgba(0, 0, 0, 0.06) !important;
+        background-color: rgb(31, 229, 127) !important;
     }
 
     .submenu-title-noDropdown,
     .el-submenu__title {
         &:hover {
-            background-color: rgba(0, 0, 0, 0.06) !important;
+            background-color: rgba(0, 0, 0, 0.92) !important;
         }
     }
 
