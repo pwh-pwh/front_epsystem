@@ -7,7 +7,6 @@ import './plugins/element.js'
 import modal from "./plugins/modal";
 import Pagination from "@/components/Pagination";
 import axios from './axios'
-
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 Vue.prototype.modal = modal
