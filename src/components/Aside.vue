@@ -6,7 +6,7 @@
                 background-color="#304156"
                 text-color="#bfcbd9"
                 :unique-opened="true"
-                active-text-color="#409EFF"
+                active-text-color="#69D921"
                 :collapse-transition="true"
                 mode="vertical"
                 :default-active="$route.name"
