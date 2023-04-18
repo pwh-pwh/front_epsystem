@@ -1,19 +1,13 @@
 <template>
     <div class="main-class">
         <div class="timeNum">
-            <p> &nbsp;疫情数据信息更新于
+<!--            <p> &nbsp;疫情数据信息更新于
                 <span style="font-weight: 500">{{ lastUpdateTime }}</span>
-            </p>
+            </p>-->
         </div>
-        <div class="btn-group">
-            <el-tag class="tags-view-item" style="cursor: pointer;" size="small" @click="getHistory()">历史疫情数据</el-tag>
-            <el-tag class="tags-view-item" style="cursor: pointer;" size="small" @click="getRiskArea()">风险地区查询</el-tag>
-            <el-tag class="tags-view-item" style="cursor: pointer;" size="small" @click="getInfiniteNews()">疫情热点信息</el-tag>
-            <el-tag class="tags-view-item" style="cursor: pointer;" size="small" @click="getVaccine()">实时疫苗接种</el-tag>
-            <el-tag class="tags-view-item" style="cursor: pointer;" size="small" @click="getRumor()">网络信息辟谣</el-tag>
-        </div>
+
         <!--疫情数据-->
-        <el-row v-if="this.chinaDayList.length > 0" :gutter="20"
+<!--        <el-row v-if="this.chinaDayList.length > 0" :gutter="20"
                 style="margin-bottom: 11px;text-align: center;">
             <el-col :span="4">
                 <div class="local" style="background-color: #fffaf7">
@@ -26,7 +20,7 @@
                     </div>
                 </div>
             </el-col>
-            <!-- 类似代码 -->
+            &lt;!&ndash; 类似代码 &ndash;&gt;
             <el-col :span="4">
                 <div class="local" style="background-color: #fff8f8">
                     <div class="add"> 较上日
@@ -82,7 +76,7 @@
                     </div>
                 </div>
             </el-col>
-        </el-row>
+        </el-row>-->
         <!--地图 信息部分-->
         <el-row :gutter="20">
             <el-col :span="10">
@@ -99,11 +93,31 @@
                     </el-timeline>
                 </el-card>
             </el-col>
-            <el-col :span="14">
+            <el-col :span="10">
+                <div class="">
+                    <el-card class="box-card">
+                        <div slot="header" class="clearfix">
+                            <span>数据查询功能</span>
+                        </div>
+                        <el-row>
+                            <el-button class="tags-view-item" type="info" style="cursor: pointer;" size="medium" @click="getHistory()">历史疫情数据</el-button>
+                            <el-button class="tags-view-item" type="info" style="cursor: pointer;" size="medium" @click="getRiskArea()">风险地区查询</el-button>
+                        </el-row>
+                        <el-row>
+                            <el-button class="tags-view-item" type="info" style="cursor: pointer;" size="medium" @click="getInfiniteNews()">疫情热点信息</el-button>
+                            <!--                        <el-button class="tags-view-item" style="cursor: pointer;" size="medium" @click="getVaccine()">实时疫苗接种</el-button>-->
+                            <el-button class="tags-view-item" type="info" style="cursor: pointer;" size="medium" @click="getRumor()">网络信息辟谣</el-button>
+                        </el-row>
+                    </el-card>
+
+
+                </div>
+            </el-col>
+<!--            <el-col :span="14">
                 <el-card shadow="hover" v-show="list.length > 0">
                     <ECharts v-if="list.length > 0" :list="list"/>
                 </el-card>
-            </el-col>
+            </el-col>-->
         </el-row>
         <el-dialog title="全国中高风险地区详情" :visible.sync="riskOpen" width="750px" append-to-body>
             <el-collapse v-model="activeName" accordion>
