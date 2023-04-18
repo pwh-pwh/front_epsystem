@@ -120,9 +120,9 @@
         font-size: 12px;
 
         &.active {
-            background-color: #409eff;
+            background-color: #1fe57f;
             color: #fff;
-            border-color: #409eff;
+            border-color: #22e125;
 
             &::before {
                 content: '';
