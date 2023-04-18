@@ -278,11 +278,11 @@
     }
 
     .login-left {
-        width: 35%;
+        /*width: 35%;
         min-width: 300px;
         max-width: 600px;
         height: 500px;
-        background-size: 100%;
+        background-size: 100%;*/
 
         p {
             font-size: 47px;
@@ -295,8 +295,8 @@
 
     .login-right {
         display: flex;
-        justify-content: flex-end;
-        width: 50%;
+        justify-content: center;
+        width: 100%;
         height: 500px;
     }
 
