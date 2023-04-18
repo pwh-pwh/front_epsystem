@@ -103,11 +103,11 @@
                             <el-button class="tags-view-item" type="info" style="cursor: pointer;" size="medium" @click="getHistory()">历史疫情数据</el-button>
                             <el-button class="tags-view-item" type="info" style="cursor: pointer;" size="medium" @click="getRiskArea()">风险地区查询</el-button>
                         </el-row>
-                        <el-row>
+<!--                        <el-row>
                             <el-button class="tags-view-item" type="info" style="cursor: pointer;" size="medium" @click="getInfiniteNews()">疫情热点信息</el-button>
-                            <!--                        <el-button class="tags-view-item" style="cursor: pointer;" size="medium" @click="getVaccine()">实时疫苗接种</el-button>-->
+                            &lt;!&ndash;                        <el-button class="tags-view-item" style="cursor: pointer;" size="medium" @click="getVaccine()">实时疫苗接种</el-button>&ndash;&gt;
                             <el-button class="tags-view-item" type="info" style="cursor: pointer;" size="medium" @click="getRumor()">网络信息辟谣</el-button>
-                        </el-row>
+                        </el-row>-->
                     </el-card>
 
 
