@@ -6,7 +6,8 @@
                         v-model="queryParams.title"
                         placeholder="请输入公告标题"
                         clearable
-                        size="small"
+                        prefix-icon="el-icon-search"
+                        size="medium"
                         @keyup.enter.native="handleQuery"
                 />
             </el-form-item>
@@ -15,7 +16,8 @@
                         v-model="queryParams.createBy"
                         placeholder="请输入操作人员"
                         clearable
-                        size="small"
+                        prefix-icon="el-icon-search"
+                        size="medium"
                         @keyup.enter.native="handleQuery"
                 />
             </el-form-item>
@@ -52,27 +54,32 @@
                 ></el-date-picker>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-                <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
+                <el-button type="primary" icon="el-icon-search" round size="medium" @click="handleQuery">搜索</el-button>
+                <el-button icon="el-icon-refresh" round size="medium" @click="resetQuery">重置</el-button>
             </el-form-item>
         </el-form>
 
         <!--按钮-->
-        <el-button
+        <div style="width: 400px;
+  height: 50px;
+  margin: 0 auto;">
+            <el-button
                 type="primary"
-                plain
                 icon="el-icon-plus"
-                size="mini"
+                round
+                size="medium"
                 @click="handleAdd"
-        >新增</el-button>
-        <el-button
+            >新增</el-button>
+            <el-button
                 type="danger"
-                plain
+                round
+                size="medium"
                 icon="el-icon-delete"
-                size="mini"
                 @click="handleDelete"
                 :disabled="multiple"
-        >删除</el-button>
+            >删除</el-button>
+        </div>
+
 
         <!--表格-->
         <el-table v-loading="loading" :data="noticeList" @selection-change="handleSelectionChange">

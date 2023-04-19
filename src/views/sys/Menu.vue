@@ -2,21 +2,26 @@
     <el-scrollbar wrap-class="scrollbar-wrapper" style="height: 100%">
     <div class="main-class">
     <!--操作按钮-->
-    <el-button
-            type="primary"
-            plain
-            icon="el-icon-plus"
-            size="mini"
-            @click="handleAdd"
-            v-permission="['sys:menu:save']"
-    >新增</el-button>
-    <el-button
-            type="info"
-            plain
-            icon="el-icon-sort"
-            size="mini"
-            @click="toggleExpandAll"
-    >展开/折叠</el-button>
+        <div style="width: 400px;
+  height: 50px;
+  margin: 0 auto;">
+            <el-button
+                type="primary"
+                icon="el-icon-plus"
+                round size="medium"
+                @click="handleAdd"
+                v-permission="['sys:menu:save']"
+            >新增</el-button>
+            <el-button
+                type="info"
+                icon="el-icon-sort"
+                round size="medium"
+                @click="toggleExpandAll"
+            >展开/折叠</el-button>
+            </div>
+
+
+
     <!--表格-->
     <el-table
             v-if="refreshTable"
@@ -53,6 +58,7 @@
                 <el-button
                         size="mini"
                         type="text"
+                        round
                         icon="el-icon-edit"
                         @click="handleUpdate(scope.row)"
                         v-permission="['sys:menu:update']"

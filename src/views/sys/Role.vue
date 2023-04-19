@@ -7,7 +7,8 @@
                         v-model="queryParams.roleName"
                         placeholder="请输入角色名称"
                         clearable
-                        size="small"
+                        prefix-icon="el-icon-search"
+                        size="medium"
                         style="width: 210px;"
                         @keyup.enter.native="handleQuery"
                 />
@@ -17,7 +18,8 @@
                         v-model="queryParams.roleKey"
                         placeholder="请输入权限字符"
                         clearable
-                        size="small"
+                        prefix-icon="el-icon-search"
+                        size="medium"
                         style="width: 210px"
                         @keyup.enter.native="handleQuery"
                 />
@@ -43,28 +45,36 @@
                 </el-select>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-                <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
+                <el-button type="primary" icon="el-icon-search" round size="medium" @click="handleQuery">搜索</el-button>
+                <el-button icon="el-icon-refresh" round size="medium" @click="resetQuery">重置</el-button>
             </el-form-item>
         </el-form>
     <!--按钮-->
-        <el-button
+        <div style="width: 400px;
+  height: 50px;
+  margin: 0 auto;">
+
+            <el-button
                 type="primary"
                 plain
                 icon="el-icon-plus"
-                size="mini"
+                round size="medium"
                 @click="handleAdd"
                 v-permission="['sys:role:save']"
-        >新增</el-button>
-        <el-button
+            >新增</el-button>
+            <el-button
                 type="danger"
                 plain
                 icon="el-icon-delete"
-                size="mini"
+                round size="medium"
                 :disabled="multiple"
                 @click="handleDelete"
                 v-permission="['sys:role:delete']"
-        >删除</el-button>
+            >删除</el-button>
+
+            </div>
+
+
     <!--表格-->
         <el-table v-loading="loading" :data="roleList" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="50" align="center" />
