@@ -4,7 +4,7 @@
             <el-col :span="7">
                 <el-card shadow="hover">
                     <el-form v-permission="['ROLE_service']" ref="form" :rules="rules" :model="form" label-width="80px">
-                        <el-form-item label="人员姓名" autocomplete="off"
+                        <el-form-item label="学生姓名" autocomplete="off"
                                       prop="name">
                             <el-input v-model="form.name" placeholder="请输入姓名" maxlength="30"/>
                         </el-form-item>
@@ -39,10 +39,10 @@
             <el-col :span="17">
                 <el-card shadow="hover">
                     <el-form :model="queryParams" ref="queryForm" :inline="true" label-width="68px">
-                        <el-form-item label="人员姓名" prop="accept">
+                        <el-form-item label="学生姓名" prop="accept">
                             <el-input
                                     v-model="queryParams.name"
-                                    placeholder="请输入人员姓名"
+                                    placeholder="请输入学生姓名"
                                     clearable
                                     auto-complete="off"
                                     size="small"
@@ -88,7 +88,7 @@
                         </el-form-item>
                     </el-form>
                     <el-table v-loading="loading" :data="dataList">
-                        <el-table-column label="人员姓名" align="center" prop="name" />
+                        <el-table-column label="学生姓名" align="center" prop="name" />
                         <el-table-column label="手机号码" width="120" align="center" prop="phone" />
                         <el-table-column prop="type" label="出入类型" width="80" align="center">
                             <template slot-scope="scope">

@@ -6,11 +6,13 @@
 
             <el-form-item label="操作人员" prop="operName">
                 <el-input
+
                         v-model="queryParams.operName"
                         placeholder="请输入操作人名称"
                         clearable
-                        size="small"
-                        style="width: 200px;"
+                        prefix-icon="el-icon-search"
+                        size="medium"
+                        style="width: 200px;border-radius: 20px;"
                         @keyup.enter.native="handleQuery"
                 />
             </el-form-item>
@@ -19,8 +21,9 @@
                     v-model="queryParams.title"
                     placeholder="请输入系统模块"
                     clearable
+                    prefix-icon="el-icon-search"
                     auto-complete="off"
-                    size="small"
+                    size="medium"
                     style="width: 200px;"
                     @keyup.enter.native="handleQuery"
                 />
