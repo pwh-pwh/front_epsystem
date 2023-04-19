@@ -1,10 +1,10 @@
 <template>
     <div class="main-class">
         <el-form v-permission="['ROLE_teacher']" :model="queryParams" ref="queryForm" :inline="true" label-width="68px">
-            <el-form-item label="用户名称" prop="username">
+            <el-form-item label="学生名称" prop="username">
                 <el-input
                         v-model="queryParams.username"
-                        placeholder="请输入用户名称"
+                        placeholder="请输入学生名称"
                         clearable
                         size="small"
                         style="width: 138px"
@@ -173,6 +173,9 @@
                 :limit.sync="queryParams.pageSize"
                 @pagination="getList"
         />
+
+
+
         <el-dialog title="请假记录详细" :visible.sync="recordOpen" width="700px" append-to-body>
             <el-form ref="form" :model="record" label-width="100px" size="mini">
                 <el-row>

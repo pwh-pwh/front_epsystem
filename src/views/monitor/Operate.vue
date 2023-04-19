@@ -3,18 +3,8 @@
     <div class="main-class">
         <!--条件查询-->
         <el-form :model="queryParams" ref="queryForm" :inline="true" label-width="68px">
-            <el-form-item label="系统模块" prop="title">
-                <el-input
-                        v-model="queryParams.title"
-                        placeholder="请输入系统模块"
-                        clearable
-                        auto-complete="off"
-                        size="small"
-                        style="width: 200px;"
-                        @keyup.enter.native="handleQuery"
-                />
-            </el-form-item>
-            <el-form-item label="操作人" prop="operName">
+
+            <el-form-item label="操作人员" prop="operName">
                 <el-input
                         v-model="queryParams.operName"
                         placeholder="请输入操作人名称"
@@ -24,7 +14,18 @@
                         @keyup.enter.native="handleQuery"
                 />
             </el-form-item>
-            <el-form-item label="操作状态" prop="status">
+            <el-form-item label="功能模块" prop="title">
+                <el-input
+                    v-model="queryParams.title"
+                    placeholder="请输入系统模块"
+                    clearable
+                    auto-complete="off"
+                    size="small"
+                    style="width: 200px;"
+                    @keyup.enter.native="handleQuery"
+                />
+            </el-form-item>
+<!--            <el-form-item label="操作状态" prop="status">
                 <el-select
                         v-model="queryParams.status"
                         placeholder="请选择操作状态"
@@ -43,7 +44,7 @@
                             :value="0"
                     />
                 </el-select>
-            </el-form-item>
+            </el-form-item>-->
             <el-form-item label="操作时间" prop="dateRange">
                 <el-date-picker
                         v-model="dateRange"
@@ -56,45 +57,52 @@
                         end-placeholder="结束日期"
                 ></el-date-picker>
             </el-form-item>
-            <el-form-item>
-                <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-                <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
-            </el-form-item>
+
         </el-form>
         <!--列表-->
-        <el-button
-                type="danger"
-                plain
+        <div style="width: 400px;
+  height: 50px;
+  margin: 0 auto;">
+
+            <el-button type="primary" icon="el-icon-search" round size="medium" @click="handleQuery">搜索</el-button>
+            <el-button icon="el-icon-refresh" size="medium" round @click="resetQuery">重置</el-button>
+            <el-button
+                type="warning"
+                round
                 icon="el-icon-delete"
-                size="mini"
+                size="medium"
                 :disabled="multiple"
                 @click="handleDelete"
                 v-permission="['monitor:operate:delete']"
-        >删除</el-button>
-        <el-button
-                type="danger"
-                plain
+            >删除</el-button>
+            <el-button
+                type="warning"
+                round
                 icon="el-icon-delete"
-                size="mini"
+                size="medium"
                 @click="handleClean"
                 v-permission="['monitor:operate:clear']"
-        >清空</el-button>
+            >清空</el-button>
+
+        </div>
+
+
         <!--数据列表-->
         <el-table ref="tables" v-loading="loading" :data="list" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55" align="center" />
             <el-table-column label="日志编号" align="center" width="80" prop="id" />
-            <el-table-column label="系统模块" align="center" prop="title" width="120" />
-            <el-table-column label="操作类型" align="center" prop="businessType" width="120" :show-overflow-tooltip="true" />
+            <el-table-column label="功能模块" align="center" prop="title" width="120" />
+            <el-table-column label="用户操作" align="center" prop="businessType" width="120" :show-overflow-tooltip="true" />
             <el-table-column label="请求方式" align="center" prop="requestMethod" width="110" :show-overflow-tooltip="true" />
-            <el-table-column label="操作人员" align="center" prop="operName" width="120" :show-overflow-tooltip="true" />
-            <el-table-column label="操作地址" align="center" prop="operIp" width="130" :show-overflow-tooltip="true" />
+            <el-table-column label="操作用户" align="center" prop="operName" width="120" :show-overflow-tooltip="true" />
+<!--            <el-table-column label="操作地址" align="center" prop="operIp" width="130" :show-overflow-tooltip="true" />-->
             <el-table-column label="操作地点" align="center" prop="operLocation" width="130" :show-overflow-tooltip="true" />
-            <el-table-column prop="status" label="状态" width="100" align="center">
+<!--            <el-table-column prop="status" label="状态" width="100" align="center">
                 <template slot-scope="scope">
                     <el-tag size="small" v-if="scope.row.status === 1" type="success">成功</el-tag>
                     <el-tag size="small" v-else-if="scope.row.status === 0" type="danger">失败</el-tag>
                 </template>
-            </el-table-column>
+            </el-table-column>-->
             <el-table-column label="操作日期" align="center" prop="operTime" :show-overflow-tooltip="true" />
             <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
                 <template slot-scope="scope">
