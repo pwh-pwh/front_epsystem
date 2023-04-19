@@ -6,7 +6,7 @@
                     <el-form v-permission="['ROLE_service']" ref="form" :rules="rules" :model="form" label-width="80px">
                         <el-form-item label="学生姓名" autocomplete="off"
                                       prop="name">
-                            <el-input v-model="form.name" placeholder="请输入姓名" maxlength="30"/>
+                            <el-input v-model="form.name"  placeholder="请输入姓名" maxlength="30"/>
                         </el-form-item>
                         <el-form-item label="联系电话" autocomplete="off"
                                       prop="phone">
@@ -30,8 +30,8 @@
                             <el-input v-model="form.remark" type="textarea" placeholder="请输入备注内容"></el-input>
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="primary" @click="submitForm">提交</el-button>
-                            <el-button @click="resetForm">重置</el-button>
+                            <el-button type="primary" round @click="submitForm">提交</el-button>
+                            <el-button round @click="resetForm">重置</el-button>
                         </el-form-item>
                     </el-form>
                 </el-card>
@@ -82,10 +82,19 @@
                                     end-placeholder="结束日期"
                             ></el-date-picker>
                         </el-form-item>
+                        <div style="width: 400px;
+  height: 50px;
+  margin: 0 auto;">
+
+                            <el-button type="primary" icon="el-icon-search" round size="medium" @click="handleQuery">搜索</el-button>
+                            <el-button icon="el-icon-refresh" size="medium" round @click="resetQuery">重置</el-button>
+
+                        </div>
+<!--
                         <el-form-item>
-                            <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-                            <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
-                        </el-form-item>
+
+                        </el-form-item>-->
+
                     </el-form>
                     <el-table v-loading="loading" :data="dataList">
                         <el-table-column label="学生姓名" align="center" prop="name" />

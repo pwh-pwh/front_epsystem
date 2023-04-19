@@ -6,8 +6,9 @@
                         v-model="queryParams.username"
                         placeholder="请输入学生名称"
                         clearable
+                        prefix-icon="el-icon-search"
                         size="small"
-                        style="width: 138px"
+                        style="width: 158px"
                         @keyup.enter.native="handleQuery"
                 />
             </el-form-item>
@@ -80,10 +81,17 @@
                         end-placeholder="结束日期"
                 ></el-date-picker>
             </el-form-item>
-            <el-form-item>
-                <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-                <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
-            </el-form-item>
+
+            <div style="width: 400px;
+  height: 50px;
+  margin: 0 auto;">
+                <el-button type="primary" icon="el-icon-search" round size="medium" @click="handleQuery">搜索</el-button>
+                <el-button icon="el-icon-refresh" size="medium" round @click="resetQuery">重置</el-button>
+            </div>
+
+<!--            <el-form-item>
+
+            </el-form-item>-->
         </el-form>
 
         <!--数据表格-->

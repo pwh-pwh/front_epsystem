@@ -1,11 +1,12 @@
 <template>
     <div class="main-class">
         <el-form :model="queryParams" ref="queryForm" :inline="true" label-width="68px">
-            <el-form-item label="人员姓名" prop="name">
+            <el-form-item label="学生姓名" prop="name">
                 <el-input
                         v-model="queryParams.name"
-                        placeholder="请输入人员姓名"
+                        placeholder="请输入学生姓名"
                         clearable
+                        prefix-icon="el-icon-search"
                         auto-complete="off"
                         size="small"
                         style="width: 160px;"
@@ -16,6 +17,7 @@
                 <el-input
                         v-model="queryParams.dept"
                         placeholder="请输入归属部门"
+                        prefix-icon="el-icon-search"
                         clearable
                         auto-complete="off"
                         size="small"
@@ -36,14 +38,14 @@
                 ></el-date-picker>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
-                <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
+                <el-button type="primary" icon="el-icon-search" round size="mini" @click="handleQuery">搜索</el-button>
+                <el-button icon="el-icon-refresh" size="mini" round @click="resetQuery">重置</el-button>
             </el-form-item>
         </el-form>
         <!--数据表格-->
         <el-table v-loading="loading" :data="dataList">
             <el-table-column label="编号" align="center" width="80" prop="id" />
-            <el-table-column label="人员姓名" align="center" prop="name" />
+            <el-table-column label="学生姓名" align="center" prop="name" />
             <el-table-column label="联系电话" align="center" prop="phone" />
             <el-table-column label="身份证号" align="center" prop="card" />
             <el-table-column label="部门信息" align="center" prop="dept" />
