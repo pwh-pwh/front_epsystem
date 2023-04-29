@@ -2,9 +2,9 @@
     <el-scrollbar wrap-class="scrollbar-wrapper" style="height: 100%">
     <div class="main-class">
         <el-form v-permission="['ROLE_teacher']" :model="queryParams" ref="queryForm" :inline="true" label-width="68px">
-            <el-form-item label="健康状态" prop="health_type">
+            <el-form-item label="健康状态" prop="healthType">
                 <el-select
-                        v-model="queryParams.health_type"
+                        v-model="queryParams.healthType"
                         placeholder="健康状态"
                         clearable
                         size="small"
@@ -27,9 +27,9 @@
                     />
                 </el-select>
             </el-form-item>
-            <el-form-item label="中高风险" prop="middle_high">
+            <el-form-item label="中高风险" prop="middleHigh">
                 <el-select
-                        v-model="queryParams.middle_high"
+                        v-model="queryParams.middleHigh"
                         placeholder="中高风险"
                         clearable
                         size="small"
@@ -116,11 +116,11 @@
         <el-table v-loading="loading" :data="dataList">
             <el-table-column label="编号" align="center" width="80" prop="id" />
             <el-table-column label="学生姓名" align="center" prop="username" />
-            <el-table-column prop="health_type" label="健康状况" align="center">
+            <el-table-column prop="healthType" label="健康状况" align="center">
                 <template slot-scope="scope">
-                    <el-tag size="small" v-if="scope.row.health_type === 2" type="success">正常</el-tag>
-                    <el-tag size="small" v-else-if="scope.row.health_type === 1" type="warning">发热咳嗽</el-tag>
-                    <el-tag size="small" v-else-if="scope.row.health_type === 0" type="danger">其他不正常</el-tag>
+                    <el-tag size="small" v-if="scope.row.healthType === 2" type="success">正常</el-tag>
+                    <el-tag size="small" v-else-if="scope.row.healthType === 1" type="warning">发热咳嗽</el-tag>
+                    <el-tag size="small" v-else-if="scope.row.healthType === 0" type="danger">其他不正常</el-tag>
                 </template>
             </el-table-column>
             <el-table-column prop="return_info" label="打卡温度" align="center">
@@ -128,10 +128,10 @@
                     <span>{{ scope.row.temperature }}&nbsp;℃</span>
                 </template>
             </el-table-column>
-            <el-table-column prop="middle_high" label="来自中高风险" align="center">
+            <el-table-column prop="middleHigh" label="来自中高风险" align="center">
                 <template slot-scope="scope">
-                    <el-tag size="small" v-if="scope.row.middle_high === 1" type="success">正常</el-tag>
-                    <el-tag size="small" v-else-if="scope.row.middle_high === 0" type="warning">不正常</el-tag>
+                    <el-tag size="small" v-if="scope.row.middleHigh === 1" type="success">正常</el-tag>
+                    <el-tag size="small" v-else-if="scope.row.middleHigh === 0" type="warning">不正常</el-tag>
                 </template>
             </el-table-column>
             <el-table-column prop="diagnosis" label="接触确诊" align="center">
@@ -173,8 +173,8 @@
                 queryParams: {
                     pageNum: 1,
                     pageSize: 10,
-                    health_type: undefined,
-                    middle_high: undefined,
+                    healthType: undefined,
+                    middleHigh: undefined,
                     diagnosis: undefined,
                     return_info: undefined,
                     deptId: undefined
@@ -196,10 +196,10 @@
                 this.queryParams = {
                     pageNum: 1,
                     pageSize: 10,
-                    health_type: undefined,
-                    middle_high: undefined,
+                    healthType: undefined,
+                    middleHigh: undefined,
                     diagnosis: undefined,
-                    return_info: undefined,
+                    returnInfo: undefined,
                     deptId: undefined
                 }
                 this.resetForm("queryForm");
@@ -214,10 +214,10 @@
                 this.$axios.get("/health/clock/list", {params: {
                         pageNum: this.queryParams.pageNum,
                         pageSize: this.queryParams.pageSize,
-                        health_type: this.queryParams.health_type,
-                        middle_high: this.queryParams.middleHigh,
+                        healthType: this.queryParams.healthType,
+                        middleHigh: this.queryParams.middleHigh,
                         diagnosis: this.queryParams.diagnosis,
-                        return_info: this.queryParams.return_info,
+                        returnInfo: this.queryParams.returnInfo,
                         deptId: this.queryParams.deptId
                     }}).then(res => {
                         this.dataList = res.data.data.records
