@@ -67,9 +67,9 @@
                 />
             </el-select>
           </el-form-item>
-            <el-form-item label="境外返回" prop="return_info">
+            <el-form-item label="境外返回" prop="returnInfo">
                 <el-select
-                        v-model="queryParams.return_info"
+                        v-model="queryParams.returnInfo"
                         placeholder="境外返回"
                         clearable
                         size="small"
@@ -123,7 +123,7 @@
                     <el-tag size="small" v-else-if="scope.row.healthType === 0" type="danger">其他不正常</el-tag>
                 </template>
             </el-table-column>
-            <el-table-column prop="return_info" label="打卡温度" align="center">
+            <el-table-column prop="returnInfo" label="打卡温度" align="center">
                 <template slot-scope="scope">
                     <span>{{ scope.row.temperature }}&nbsp;℃</span>
                 </template>
@@ -140,10 +140,10 @@
                     <el-tag size="small" v-else-if="scope.row.diagnosis === 0" type="warning">不正常</el-tag>
                 </template>
             </el-table-column>
-            <el-table-column prop="return_info" label="接触境外返回" align="center">
+            <el-table-column prop="returnInfo" label="接触境外返回" align="center">
                 <template slot-scope="scope">
-                    <el-tag size="small" v-if="scope.row.return_info === 1" type="success">正常</el-tag>
-                    <el-tag size="small" v-else-if="scope.row.return_info === 0" type="warning">不正常</el-tag>
+                    <el-tag size="small" v-if="scope.row.returnInfo === 1" type="success">正常</el-tag>
+                    <el-tag size="small" v-else-if="scope.row.returnInfo === 0" type="warning">不正常</el-tag>
                 </template>
             </el-table-column>
             <el-table-column label="打卡位置" align="center" prop="address" width="190" />
@@ -176,7 +176,7 @@
                     healthType: undefined,
                     middleHigh: undefined,
                     diagnosis: undefined,
-                    return_info: undefined,
+                    returnInfo: undefined,
                     deptId: undefined
                 },
                 loading: false,
