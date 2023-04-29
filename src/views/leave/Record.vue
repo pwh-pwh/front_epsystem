@@ -569,7 +569,7 @@
                 this.examineOpen = true
             },
             submitExamine(){
-              this.form.day = this.form.day.toString()
+              //this.form.day = this.form.day.toString()
                 this.$axios.put("/leave/apply", this.examineForm).then(res => {
                     this.modal.notifySuccess(res.data.data)
                     this.getList()
